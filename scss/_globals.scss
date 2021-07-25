@@ -1,3 +1,25 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Spartan', sans-serif;
+    padding: 0;
+    margin: 0 auto;
+    font-size: 15px; 
+    max-width: 1440px;
+    background-color: $light-grayish-cyan-background;
+}
+
+h1 {
+    font-size: 17px;
+}
+
 //Flexbox
 
 .flex {
@@ -27,4 +49,5 @@
         align-items: center;
     }
 }
+
 

@@ -1,34 +1,53 @@
 .item {
-    background-color: aqua;
-    margin: 10px;
+    margin: 20px;
+    padding: 20px;
+    background-color: $white;
+    position: relative;
+    border-radius: 2%;
+
+    &__image {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
 
     .description {
         &__feature {
             padding-left: 0;
             li {
-                list-style-type: none; 
+                list-style-type: none;
 
                 &:not(:last-child) {
                     margin-right: 20px;
                 }
             }
-
         }
 
         &__time {
             padding-left: 0;
-        }
-    }
+            li {
+                list-style-type: none;
 
-    &__role {
-        li {
-            list-style-type: none;
-
-            &:not(:last-child) {
-                margin-right: 20px;
+                &:not(:last-child) {
+                    margin-right: 20px;
+                }
             }
         }
     }
 
+    &__role {
+        padding-left: 0;
+        flex-wrap: wrap;
+        gap: 12px;
 
+        li {
+            list-style-type: none;
+            background-color: $light-grayish-cyan-filter-tablets;
+            color: $desaturated-dark-cyan;
+            font-weight: 700;
+            padding: 7px;
+            border-radius: 10%;
+        }
+    }
 }
