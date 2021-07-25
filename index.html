@@ -1,193 +1,341 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Job Listings</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="/dist/style.css">
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
 </head>
+
 <body>
   <!-- Item Start -->
-  Photosnap
-  New!
-  Featured
-  Senior Frontend Developer
-  1d ago
-  Full Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Senior
-  <!-- Languages -->
-  HTML
-  CSS
-  JavaScript
-  <!-- Item End -->
+  <div class="item flex flex-f-d-r flex-jc-sa">
 
-  <!-- Item Start -->
-  Manage
-  New!
-  Featured
-  Fullstack Developer
-  1d ago
-  Part Time
-  Remote
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  Python
-  <!-- Tools -->
-  React
-  <!-- Item End -->
-
-  <!-- Item Start -->
-  Account
-  New!
-  Junior Frontend Developer
-  2d ago
-  Part Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  React
-  Sass
-  <!-- Item End -->
-
-  <!-- Item Start -->
-  MyHome
-  Junior Frontend Developer
-  5d ago
-  Contract
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  CSS
-  JavaScript
-  <!-- Item End -->
-
-  <!-- Item Start -->
-  Loop Studios
-  Software Engineer
-  1w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  JavaScript
-  Ruby
-  <!-- Tools -->
-  Sass
-  <!-- Item End -->
-
-  <!-- Item Start -->
-  FaceIt
-  Junior Backend Developer
-  2w ago
-  Full Time
-  UK only
-  <!-- Role -->
-  Backend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  Ruby
-  <!-- Tools -->
-  RoR
-  <!-- Item End -->
-
-  <!-- Item Start -->
-  Shortly
-  Junior Developer
-  2w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  HTML
-  JavaScript
-  <!-- Tools -->
-  Sass
-  <!-- Item End -->
-
-  <!-- Item Start -->
-  Insure
-  Junior Frontend Developer
-  2w ago
-  Full Time
-  USA only
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  Vue
-  Sass
-  <!-- Item End -->
-
-  <!-- Item Start -->
-  Eyecam Co.
-  Full Stack Engineer
-  3w ago
-  Full Time
-  Worldwide
-  <!-- Role -->
-  Fullstack
-  <!-- Level -->
-  Midweight
-  <!-- Languages -->
-  JavaScript
-  Python
-  <!-- Tools -->
-  Django
-  <!-- Item End -->
-
-  <!-- Item Start -->
-  The Air Filter Company
-  Front-end Dev
-  1mo ago
-  Part Time
-  Worldwide
-  <!-- Role -->
-  Frontend
-  <!-- Level -->
-  Junior
-  <!-- Languages -->
-  JavaScript
-  <!-- Tools -->
-  React
-  Sass
-  <!-- Item End -->
+    <img src="/images/photosnap.svg">
+    
+    <div class="description">
+      <ul class="description__feature flex">
+        <li>Photosnap</li>
+        <li>New!</li>
+        <li>Featured</li>
+      </ul>
   
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+      <h1>Senior Frontend Developer</h1>
+  
+      <ul class="description__time flex flex-jc-sa">
+        <li>1d ago</li>
+        <li>Full Time</li>
+        <li>USA only</li>
+      </ul>
+    </div>
+
+    <ul class="item__role flex flex-jc-sb flex-ai-c ">
+      <li>Frontend</li>
+      <li>Senior</li>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+
   </div>
+  <!-- Item End -->
+
+  <!-- Item Start -->
+  <div class="item flex flex-f-d-r flex-jc-sa">
+
+    <img src="/images/manage.svg">
+
+    <div class="description">
+      <ul class="description__feature">
+        <li>Manage</li>
+        <li>New!</li>
+        <li>Featured</li>
+      </ul>
+  
+      <h1>Fullstack Developer</h1>
+  
+      <ul class="description__feature">
+        <li>1d ago</li>
+        <li>Part Time</li>
+        <li>Remote</li>
+      </ul>
+    </div>
+
+    <ul class="item__role">
+      <li>Fullstack</li>
+      <li>Midweight</li>
+      <li>Python</li>
+      <li>React</li>
+    </ul>
+
+  </div>
+  <!-- Item End -->
+
+  <!-- Item Start -->
+  <div class="item flex flex-f-d-r flex-jc-sa">
+
+    <img src="/images/account.svg">
+
+    <div class="description">
+      <ul class="description__feature">
+        <li>Account</li>
+        <li>New!</li>
+      </ul>
+  
+      <h1>Junior Frontend Developer</h1>
+  
+      <ul class="description__time">
+        <li>2d ago</li>
+        <li>Part Time</li>
+        <li>USA only</li>
+      </ul>
+    </div>
+
+    <ul class="item__role">
+      <li>Frontend</li>
+      <li>Junior</li>
+      <li>React</li>
+      <li>Sass</li>
+      <li>JavaScript</li>
+    </ul>
+
+  </div>
+  <!-- Item End -->
+
+  <!-- Item Start -->
+  <div class="item flex flex-f-d-r flex-jc-sa">
+
+    <img src="/images/myhome.svg">
+
+    <div class="description">
+      <ul class="description__feature">
+        <li>MyHome</li>
+      </ul>
+  
+      <h1>Junior Frontend Developer</h1>
+  
+      <ul class="description__time">
+        <li>5d ago</li>
+        <li>Contract</li>
+        <li>USA only</li>
+      </ul>
+  
+      <ul class="item__role">
+        <li>Frontend</li>
+        <li>Junior</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+    </div>
+
+    
+
+  </div>
+  <!-- Item End -->
+
+  <!-- Item Start -->
+  <div class="item flex flex-f-d-r flex-jc-sa">
+
+    <img src="/images/loop-studios.svg">
+
+    <div class="description">
+      <ul class="description__feature">
+        <li>Loop Studios</li>
+      </ul>
+  
+      <h1>Software Engineer</h1>
+  
+      <ul class="description__feature">
+        <li>1w ago</li>
+        <li>Full Time</li>
+        <li>Worldwide</li>
+      </ul>
+    </div>
+
+    <ul class="item__role">
+      <li>Fullstack</li>
+      <li>Midweight</li>
+      <li>JavaScript</li>
+      <li>Sass</li>
+      <li>Ruby</li>
+    </ul>
+
+  </div>
+  <!-- Item End -->
+
+  <!-- Item Start -->
+  <div class="item flex flex-f-d-r flex-jc-sa">
+
+    <img src="/images/faceit.svg">
+
+    <div class="description">
+      <ul class="description__feature">
+        <li>FaceIt</li>
+      </ul>
+  
+      <h1>Junior Backend Developer</h1>
+  
+      <ul class="description__time">
+        <li>2w ago</li>
+        <li>Full Time</li>
+        <li>UK only</li>
+      </ul>
+    </div>
+
+    <ul class="item__role">
+      <li>Backend</li>
+      <li>Junior</li>
+      <li>HTML</li>
+      <li>Sass</li>
+      <li>JavaScript</li>
+    </ul>
+
+  </div>
+  <!-- Item End -->
+
+  <!-- Item Start -->
+  <div class="item flex flex-f-d-r flex-jc-sa">
+
+    <img src="/images/shortly.svg">
+
+    <div class="description">
+      <ul class="description__feature">
+        <li>Shortly</li>
+      </ul>
+  
+      <h1>Junior Developer</h1>
+  
+      <ul class="description__time">
+        <li>2w ago</li>
+        <li>Full Time</li>
+        <li>Worldwide</li>
+      </ul>
+    </div>
+
+    <ul class="item__role">
+      <li>Frontend</li>
+      <li>Junior</li>
+      <li>HTML</li>
+      <li>Sass</li>
+      <li>JavaScript</li>
+    </ul>
+
+  </div>
+  <!-- Item End -->
+
+  <!-- Item Start -->
+  <div class="item flex flex-f-d-r flex-jc-sa">
+
+    <img src="/images/insure.svg">
+
+    <div class="description">
+      <ul class="description__feature">
+        <li>Insure</li>
+      </ul>
+  
+      <h1>Junior Frontend Developer</h1>
+  
+      <ul class="description__time">
+        <li>2w ago</li>
+        <li>Full Time</li>
+        <li>USA only</li>
+      </ul>
+    </div>
+
+    <ul class="item__role">
+      <li>Frontend</li>
+      <li>Junior</li>
+      <li>Vue</li>
+      <li>JavaScript</li>
+      <li>Sass</li>
+    </ul>
+
+  </div>
+  <!-- Item End -->
+
+  <!-- Item Start -->
+  <div class="item flex flex-f-d-r flex-jc-sa">
+
+    <img src="/images/eyecam-co.svg">
+
+    <div class="description">
+      <ul class="description__feature">
+        <li>Eyecam Co.</li>
+      </ul>
+  
+      <h1>Full Stack Engineer</h1>
+  
+      <ul class="description__time">
+        <li>3w ago</li>
+        <li>Full Time</li>
+        <li>Worldwide</li>
+      </ul>
+    </div>
+    
+    <ul class="item__role">
+      <li>Fullstack</li>
+      <li>Midweight</li>
+      <li>JavaScript</li>
+      <li>Django</li>
+      <li>Python</li>
+    </ul>
+
+  </div>
+  <!-- Item End -->
+
+  <!-- Item Start -->
+  <div class="item flex flex-f-d-r flex-jc-sa">
+
+    <img src="/images/the-air-filter-company.svg">
+
+    <div class="description">
+      <ul class="description__feature">
+        <li>The Air Filter Company</li>
+      </ul>
+  
+      <h1>Front-end Dev</h1>
+  
+      <ul class="description__time">
+        <li>1mo ago</li>
+        <li>Part Time</li>
+        <li>Worldwide</li>
+      </ul>
+    </div>
+
+    <ul class="item__role">
+      <li>Frontend</li>
+      <li>Junior</li>
+      <li>React</li>
+      <li>Sass</li>
+      <li>JavaScript</li>
+    </ul>
+
+  </div>
+  <!-- Item End -->
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Jana Bobulis</a>.
+  </div>
+  <script src="app.js"></script>
 </body>
+
 </html>

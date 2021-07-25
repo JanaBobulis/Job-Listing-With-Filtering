@@ -1,0 +1,34 @@
+.item {
+    background-color: aqua;
+    margin: 10px;
+
+    .description {
+        &__feature {
+            padding-left: 0;
+            li {
+                list-style-type: none; 
+
+                &:not(:last-child) {
+                    margin-right: 20px;
+                }
+            }
+
+        }
+
+        &__time {
+            padding-left: 0;
+        }
+    }
+
+    &__role {
+        li {
+            list-style-type: none;
+
+            &:not(:last-child) {
+                margin-right: 20px;
+            }
+        }
+    }
+
+
+}
