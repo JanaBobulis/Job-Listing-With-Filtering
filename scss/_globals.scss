@@ -50,4 +50,17 @@ h1 {
     }
 }
 
+//visibility 
+
+.header-desktop {
+    @include breakpoint-down(small) {
+        display: none;
+    }
+}
+
+.header-mobile {
+    @include breakpoint-up(medium) {
+        display: none;
+    }
+}
 

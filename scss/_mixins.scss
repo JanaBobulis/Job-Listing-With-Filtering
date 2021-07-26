@@ -1,0 +1,17 @@
+// Breakpoints
+
+$breakpoint-up: ("small": "375px", "medium": "640px", "large": "1024px", "x-large": "1400px"); //max-width and largest breakpoint is set to given desktop width
+$breakpoint-down: ("x-small": "3784px", "small" : "639px", "medium": "1023px", "large": "1399px");
+
+@mixin breakpoint-up($size) {
+    @media (min-width: map-get($breakpoint-up, $size)) {
+        @content;
+    }
+}
+
+@mixin breakpoint-down($size) {
+    @media (max-width: map-get($breakpoint-down, $size)) {
+        @content;
+    }
+}
+

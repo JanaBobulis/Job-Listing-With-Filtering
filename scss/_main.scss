@@ -1,9 +1,27 @@
+header {
+    .header {
+        background-color: $desaturated-dark-cyan;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
 .item {
     margin: 20px;
     padding: 20px;
     background-color: $white;
     position: relative;
     border-radius: 2%;
+    flex-direction: column;
+
+    @include breakpoint-up(large) {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        margin: 20px auto;
+    }
 
     &__image {
         img {
@@ -15,6 +33,11 @@
     .description {
         &__feature {
             padding-left: 0;
+
+            &:nth-child(1) {
+                color: $desaturated-dark-cyan;
+                font-weight: 700;
+            }
             li {
                 list-style-type: none;
 
@@ -26,6 +49,7 @@
 
         &__time {
             padding-left: 0;
+            color: $dark-grayish-cyan;
             li {
                 list-style-type: none;
 
@@ -47,7 +71,14 @@
             color: $desaturated-dark-cyan;
             font-weight: 700;
             padding: 7px;
-            border-radius: 10%;
+            border-radius: 5px;
+        }
+
+        li:hover {
+            cursor: pointer;
+            background-color: $desaturated-dark-cyan;
+            color:$white;
+            transition: .2s ease-in-out;
         }
     }
 }
