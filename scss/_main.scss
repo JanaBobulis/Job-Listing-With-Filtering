@@ -16,6 +16,10 @@ header {
     border-radius: 2%;
     flex-direction: column;
 
+    &:first-of-type {
+        margin-top: 50px;
+    }
+
     @include breakpoint-up(large) {
         flex-direction: row;
         justify-content: space-between;
@@ -24,6 +28,13 @@ header {
     }
 
     &__image {
+        width: 20%;
+        margin-top: -16%;
+
+        @include breakpoint-up(large) {
+            margin-top: unset;
+            width: 13%;
+        }
         img {
             width: 100%;
             height: auto;
@@ -31,12 +42,17 @@ header {
     }
 
     .description {
+        position: relative;
+        
         &__feature {
             padding-left: 0;
+            align-items: center;
+            margin-top: 0;
 
             &:nth-child(1) {
                 color: $desaturated-dark-cyan;
                 font-weight: 700;
+                margin-top: 40px;
             }
             li {
                 list-style-type: none;
@@ -45,11 +61,36 @@ header {
                     margin-right: 20px;
                 }
             }
+
+            .new {
+                background-color:  $desaturated-dark-cyan;
+                color: $white;
+                border-radius: 25px;
+                padding: 8px 10px;
+                text-transform: uppercase;
+            }
+
+            .featured {
+                text-transform: uppercase;
+                background-color: $very-dark-grayish-cyan;
+                border-radius: 25px;
+                padding: 8px 10px;
+                color: $white;   
+                            
+
+            }
         }
 
         &__time {
             padding-left: 0;
             color: $dark-grayish-cyan;
+            position: relative;
+            margin-bottom: 20px;
+
+            @include breakpoint-up(medium) {
+                margin-bottom: 10px;
+            }
+            
             li {
                 list-style-type: none;
 
@@ -60,10 +101,28 @@ header {
         }
     }
 
+    .description::before {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: $dark-grayish-cyan; 
+    }
+
+    
+
     &__role {
         padding-left: 0;
         flex-wrap: wrap;
         gap: 12px;
+        margin-top: 20px;
+
+        @include breakpoint-up(medium) {
+            margin-top: 10px;
+        }
 
         li {
             list-style-type: none;
