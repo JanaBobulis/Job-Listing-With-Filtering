@@ -15,6 +15,7 @@ header {
     position: relative;
     border-radius: 2%;
     flex-direction: column;
+    margin-top: 50px;
 
     &:first-of-type {
         margin-top: 50px;
@@ -27,101 +28,108 @@ header {
         margin: 20px auto;
     }
 
-    &__image {
-        width: 20%;
-        margin-top: -16%;
-
+    .company {
         @include breakpoint-up(large) {
-            margin-top: unset;
-            width: 13%;
-        }
-        img {
-            width: 100%;
-            height: auto;
-        }
-    }
-
-    .description {
-        position: relative;
-        
-        &__feature {
-            padding-left: 0;
+            display: flex;
             align-items: center;
-            margin-top: 0;
+            gap: 30px;
+        }
 
-            &:nth-child(1) {
-                color: $desaturated-dark-cyan;
-                font-weight: 700;
-                margin-top: 40px;
-            }
-            li {
-                list-style-type: none;
+        .logo {
+            position: absolute;
+            top: 0;
+            width: 4rem;
+            transform: translateY(-50%);
 
-                &:not(:last-child) {
-                    margin-right: 20px;
-                }
-            }
-
-            .new {
-                background-color:  $desaturated-dark-cyan;
-                color: $white;
-                border-radius: 25px;
-                padding: 8px 10px;
-                text-transform: uppercase;
+            @include breakpoint-up(large) {
+                position: relative;
+                top: unset;
+                width: unset;
+                transform: unset;
             }
 
-            .featured {
-                text-transform: uppercase;
-                background-color: $very-dark-grayish-cyan;
-                border-radius: 25px;
-                padding: 8px 10px;
-                color: $white;   
-                            
-
+            img {
+                width: 100%;
+                height: auto;
             }
         }
 
-        &__time {
-            padding-left: 0;
-            color: $dark-grayish-cyan;
-            position: relative;
-            margin-bottom: 20px;
+        .details {
+            &__feature {
+                padding-left: 0;
+                align-items: center;
+                margin-top: 0;
 
-            @include breakpoint-up(medium) {
-                margin-bottom: 10px;
-            }
-            
-            li {
-                list-style-type: none;
-
-                &:not(:last-child) {
-                    margin-right: 20px;
+                &:nth-child(1) {
+                    color: $desaturated-dark-cyan;
+                    font-weight: 700;
+                    margin-top: 20px;
                 }
+                li {
+                    list-style-type: none;
+
+                    &:not(:last-child) {
+                        margin-right: 20px;
+                    }
+                }
+
+                .new {
+                    background-color: $desaturated-dark-cyan;
+                    color: $white;
+                    border-radius: 25px;
+                    padding: 8px 10px;
+                    text-transform: uppercase;
+                }
+
+                .featured {
+                    text-transform: uppercase;
+                    background-color: $very-dark-grayish-cyan;
+                    border-radius: 25px;
+                    padding: 8px 10px;
+                    color: $white;
+                }
+            }
+
+            &__time {
+                padding-left: 0;
+                color: $dark-grayish-cyan;
+                position: relative;
+                margin-bottom: 20px;
+
+                @include breakpoint-up(medium) {
+                    /*margin-bottom: 10px;*/
+                }
+
+                li {
+                    list-style-type: none;
+
+                    &:not(:last-child) {
+                        margin-right: 20px;
+                    }
+                }
+            }
+
+            &__time::before {
+                content: "";
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 1px;
+                bottom: -20px;
+                background-color: $dark-grayish-cyan;
             }
         }
     }
-
-    .description::before {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 1px;
-        bottom: 0;
-        left: 0;
-        background-color: $dark-grayish-cyan; 
-    }
-
-    
 
     &__role {
         padding-left: 0;
         flex-wrap: wrap;
         gap: 12px;
         margin-top: 20px;
+        position: relative;
 
-        @include breakpoint-up(medium) {
-            margin-top: 10px;
+        @include breakpoint-up(large) {
+            margin-top: 25px;
         }
 
         li {
@@ -136,8 +144,8 @@ header {
         li:hover {
             cursor: pointer;
             background-color: $desaturated-dark-cyan;
-            color:$white;
-            transition: .2s ease-in-out;
+            color: $white;
+            transition: 0.2s ease-in-out;
         }
     }
 }
