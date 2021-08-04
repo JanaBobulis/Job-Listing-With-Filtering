@@ -5,14 +5,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap" rel="stylesheet">
+
+  <!--google icons-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
   <title>Frontend Mentor | Job Listings</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <link rel="stylesheet" href="/dist/style.css">
+
+  <!--Jquery library-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <style>
     .attribution {
       font-size: 11px;
@@ -32,6 +39,8 @@
     </div>
     <div class="header header-desktop">
       <img src="/images/bg-header-desktop.svg">
+    </div>
+    <div class="filters flex">
     </div>
   </header>
   <!-- Item Start -->
@@ -66,11 +75,17 @@
     </div>
 
     <ul class="item__role flex flex-ai-c">
-      <li>Frontend</li>
-      <li>Senior</li>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
+      <li>
+        <button class="category selector" value="frontend" >Frontend</button>
+      </li>
+      <li>
+        <button class="category" value="senior" >Senior</button>
+      </li>
+      <li >
+        <button class="category" value="html">HTML</button>
+      </li>
+      <li id="category" class="css">CSS</li>
+      <li id="category" class="javascript">JavaScript</li>
     </ul>
 
   </div>
@@ -148,7 +163,11 @@
     </div>
 
     <ul class="item__role flex flex-ai-c">
-      <li>Frontend</li>
+      <li>
+        <button id="category" class="frontend" data-id="frontend" value="frontend">
+          Frontend
+        </button>
+      </li>
       <li>Junior</li>
       <li>React</li>
       <li>Sass</li>
@@ -188,7 +207,9 @@
     </div>
 
     <ul class="item__role flex flex-ai-c">
-      <li>Frontend</li>
+      <button class="category" value="frontend">
+        Frontend
+      </button>
       <li>Junior</li>
       <li>CSS</li>
       <li>JavaScript</li>
@@ -306,7 +327,9 @@
     </div>
 
     <ul class="item__role flex flex-ai-c">
-      <li>Frontend</li>
+      <button id="category" data-id="frontend">
+        Frontend
+      </button>
       <li>Junior</li>
       <li>HTML</li>
       <li>Sass</li>
@@ -347,7 +370,9 @@
     </div>
 
     <ul class="item__role flex flex-ai-c">
-      <li>Frontend</li>
+      <button id="category" data-id="frontend">
+        Frontend
+      </button>
       <li>Junior</li>
       <li>Vue</li>
       <li>JavaScript</li>
@@ -427,7 +452,9 @@
     </div>
 
     <ul class="item__role flex flex-ai-c">
-      <li>Frontend</li>
+      <button id="category" data-id="frontend">
+        Frontend
+      </button>
       <li>Junior</li>
       <li>React</li>
       <li>Sass</li>
