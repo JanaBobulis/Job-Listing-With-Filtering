@@ -31,6 +31,32 @@ header {
         .element-item {
             display: flex;
             align-items: center;
+            margin-right: 15px;
+
+            span:first-child {
+                background-color: $light-grayish-cyan-filter-tablets;
+                color: $desaturated-dark-cyan;
+                color: $desaturated-dark-cyan;
+                font-weight: 700;
+                padding: 7px;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+            }
+
+            .close-icon {
+                background-color: $desaturated-dark-cyan;
+                color: $white;
+                padding: 3px;
+                border-radius: 0 5px 5px 0;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $very-dark-grayish-cyan;
+                    transition: .2s ease-in-out;
+                }
+            }
+
         }
         
     }
