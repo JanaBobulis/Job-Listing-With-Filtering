@@ -17,7 +17,9 @@ arr.forEach(element => {
     console.log(element)
     element.addEventListener('click', function (event) {
         event.stopPropagation();
-        event.preventDefault()
+        event.preventDefault();
+
+        results.style.opacity = "1"
 
         if (element) {
             results.innerHTML +=
