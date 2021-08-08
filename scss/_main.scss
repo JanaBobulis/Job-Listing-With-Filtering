@@ -61,7 +61,7 @@ header {
                 background-color: $desaturated-dark-cyan;
                 color: $white;
                 padding: 3px;
-                border-radius: 0 5px 5px 0;
+                border-radius: 0 10px 10px 0;
                 cursor: pointer;
 
                 &:hover {
@@ -76,6 +76,7 @@ header {
 }
 
 .item {
+    position: relative;
     margin: 0 auto;
     padding: 20px;
     width: 95%;
@@ -223,4 +224,15 @@ header {
 
         
     }
+}
+/*targeting first two childs*/
+.item:nth-child(-n + 3)::before {
+    content: '';
+    position: absolute;
+    background-color: $desaturated-dark-cyan;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 5px;
+    border-radius: 10px 0 0 10px;
 }
