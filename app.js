@@ -12,15 +12,15 @@ console.log(arr)
 
 
 arr.forEach(element => {
-    let results = document.querySelector('.filters')
+    let results = document.querySelector('.filtered-items')
+    let resultsParent = document.querySelector('.filters')
     console.log(results)
     console.log(element)
     element.addEventListener('click', function (event) {
         event.stopPropagation();
         event.preventDefault();
 
-        results.style.opacity = "1"
-
+        resultsParent.style.opacity = "1"
 
         if (element) {
             results.innerHTML +=
@@ -46,4 +46,13 @@ arr.forEach(element => {
             }
         };
     })
+
+    //clears all selected elements on one click
+    const clearAll = document.querySelector('.clear');
+
+    clearAll.onclick = () => {
+        const myNode = resultsParent;
+        myNode.style.opacity = '0'
+    }
 })
+

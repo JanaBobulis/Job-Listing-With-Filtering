@@ -29,6 +29,19 @@ header {
             width: 90%;
         }
 
+        .clear {
+            span {
+                color: $desaturated-dark-cyan;
+                font-weight: 700;
+                cursor: pointer;
+            }
+
+            span:hover {
+                text-decoration: underline;
+            }
+        }
+        
+
         .element-item {
             display: flex;
             align-items: center;
@@ -36,7 +49,6 @@ header {
 
             span:first-child {
                 background-color: $light-grayish-cyan-filter-tablets;
-                color: $desaturated-dark-cyan;
                 color: $desaturated-dark-cyan;
                 font-weight: 700;
                 padding: 7px;
