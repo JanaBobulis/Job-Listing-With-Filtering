@@ -21,11 +21,12 @@ arr.forEach(element => {
 
         results.style.opacity = "1"
 
+
         if (element) {
             results.innerHTML +=
                 `
             <div class="element-item">
-                <span>${element.value}</span>
+                <span>${element.innerHTML}</span>
                 <span class="material-icons close-icon">close</span>
             </div>
              `;
