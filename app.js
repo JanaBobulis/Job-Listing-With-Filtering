@@ -12,10 +12,10 @@ let uniqueArrayElement = itemValues4.filter(function (element, index, self) {
   return index === self.indexOf(element);
 });
 
-itemValues.map((element) => {
+itemValues.forEach((element) => {
   let results = document.querySelector(".filtered-items");
   let resultsParentElement = document.querySelector(".filters");
-  element.addEventListener("click", function(event) {
+  element.addEventListener("click", function (event) {
     event.stopPropagation();
     event.preventDefault();
 
@@ -41,7 +41,7 @@ itemValues.map((element) => {
     for (i = 0; i < activeCloseButton.length; i++) {
       activeCloseButton[i].onclick = function () {
         let div = this.parentElement;
-        div.style.display = "none";  
+        div.style.display = "none";
       };
     }
   });
@@ -51,12 +51,12 @@ itemValues.map((element) => {
 
   clearAll.onclick = () => {
     const myNode = resultsParentElement;
-    let items = document.querySelectorAll(".item"); 
+    let items = document.querySelectorAll(".item");
     const myNodeText = results;
     myNode.style.opacity = "0";
     myNodeText.textContent = "";
     items.forEach((item) => {
-        item.style.display = "block"
+      item.style.display = "flex";
     })
   };
 });
@@ -65,27 +65,28 @@ itemValues.map((element) => {
 function filterClick() {
   let buttons = document.querySelectorAll("button");
   let items = document.querySelectorAll(".item");
+  console.log(items)
 
   buttons.forEach((button) => {
+    
     button.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
-
+      
       const filter = e.target.dataset.filter;
 
       items.forEach((item) => {
+        console.log(item)
+        console.log(button)
         if (item.classList.contains(filter)) {
-          item.style.display = "block"; 
-          item.classList.add('active')
-        } 
+          item.style.display = "flex";
+        }
         else {
           item.style.display = "none";
-          item.classList.remove('active')          
         }
       });
     });
   });
 }
-
 
 filterClick();
