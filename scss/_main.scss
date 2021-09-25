@@ -225,6 +225,8 @@ header {
         
     }
 }
+
+
 /*targeting first two childs*/
 .item:nth-child(-n + 3)::before {
     content: '';
@@ -235,4 +237,8 @@ header {
     bottom: 0;
     width: 5px;
     border-radius: 10px 0 0 10px;
+}
+
+.active {
+    display: inline-block;
 }
