@@ -16,6 +16,7 @@ const itemValues4 = [...document.querySelectorAll("[value]")].map(
 
 itemValues.forEach((element) => {
   let results = document.querySelector(".filtered-items");
+  // let resultsArray = [...document.querySelector(".filtered-items")];
   let resultsParentElement = document.querySelector(".filters");
   element.addEventListener("click", function (event) {
     event.stopPropagation();
@@ -25,30 +26,13 @@ itemValues.forEach((element) => {
 
     if (element) {
       results.innerHTML += `
-            <div class="element-item">
+            <div class="element-item ${element.innerHTML.toLocaleLowerCase()}">
                 <span>${element.innerHTML}</span>
                 <span class="material-icons close-icon">close</span>
             </div>
              `;
     }
 
-
-    let btn = document.querySelectorAll(".category");
-    let arr = [...btn];
-    console.log([element], element)
-
-    //hides selected item (selects parent element of the icon along with the description)
-    let closeButton = document.querySelectorAll(".close-icon");
-    let activeCloseButton = [...closeButton];
-
-    let i;
-    for (i = 0; i < activeCloseButton.length; i++) {
-      activeCloseButton[i].onclick = function () {
-        let div = this.parentElement;
-        div.style.display = "none";
-        let searchArray = [];
-      };
-    }
   });
 
   //clears all selected elements on one click
@@ -73,11 +57,11 @@ function filterClick() {
   const itemValues = [...document.querySelectorAll(".item")];
 
   buttons.forEach((button) => {
-    
+
     button.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
-      
+
       const filter = e.target.dataset.filter;
 
       //array that updates every time you add filter by clicking the button. also it would need to remove filters/classes when you remove them
@@ -87,16 +71,44 @@ function filterClick() {
       itemValues.forEach((item) => {
 
         let arrayOfElements = [];
-        
+
         if (item.classList.contains(filter)) {
           arrayOfElements.push(filter);
+        } else {
+          item.style.display = "none"
         }
-        else {
-          item.style.display = "none";
-        }
+
+        //hides selected item (selects parent element of the icon along with the description)
+        let closeButton = document.querySelectorAll(".close-icon");
+        let activeCloseButton = [...closeButton];
+
+        activeCloseButton.forEach((activeButton) => {
+          console.log(activeButton)
+          activeButton.addEventListener('click', (e) => {
+            activeButton.parentElement.style.display = "none";
+          })
+        })
       });
     });
   });
 }
 
 filterClick();
+
+
+
+
+
+
+ // let i;
+        // for (i = 0; i < activeCloseButton.length; i++) {
+        //   const filterTest = e.target.dataset.filter;
+        //   activeCloseButton[i].onclick = function () {
+        //     let div = this.parentElement;
+        //     div.style.display = "none";
+        //     if (div.classList.contains(filterTest) === item.classList.contains(filter)) {
+        //       item.style.display = "flex"
+        //       let testPop = arrayOfElements.pop(filter);
+        //     }
+        //   };
+        // }
