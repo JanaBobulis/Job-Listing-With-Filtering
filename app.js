@@ -7,10 +7,12 @@ const itemValues4 = [...document.querySelectorAll("[value]")].map(
   (value) => value.innerHTML
 );
 
-//filters all elements in an array and deleted dublicates
-let uniqueArrayElement = itemValues4.filter(function (element, index, self) {
-  return index === self.indexOf(element);
-});
+//filters all elements in an array and deletes dublicates
+// let uniqueArrayElement = itemValues4.filter(function (element, index, self) {
+//   console.log(self)
+
+//   return index === self.indexOf(element);
+// });
 
 itemValues.forEach((element) => {
   let results = document.querySelector(".filtered-items");
@@ -30,8 +32,10 @@ itemValues.forEach((element) => {
              `;
     }
 
+
     let btn = document.querySelectorAll(".category");
     let arr = [...btn];
+    console.log([element], element)
 
     //hides selected item (selects parent element of the icon along with the description)
     let closeButton = document.querySelectorAll(".close-icon");
@@ -42,6 +46,7 @@ itemValues.forEach((element) => {
       activeCloseButton[i].onclick = function () {
         let div = this.parentElement;
         div.style.display = "none";
+        let searchArray = [];
       };
     }
   });
@@ -65,7 +70,7 @@ itemValues.forEach((element) => {
 function filterClick() {
   let buttons = document.querySelectorAll("button");
   let items = document.querySelectorAll(".item");
-  console.log(items)
+  const itemValues = [...document.querySelectorAll(".item")];
 
   buttons.forEach((button) => {
     
@@ -75,11 +80,16 @@ function filterClick() {
       
       const filter = e.target.dataset.filter;
 
-      items.forEach((item) => {
-        console.log(item)
-        console.log(button)
+      //array that updates every time you add filter by clicking the button. also it would need to remove filters/classes when you remove them
+      //an array which adds the class each time a class is selected by the user to create a list of all currently active classes
+      //create an array and add to this - how do i create an array and add items to it
+
+      itemValues.forEach((item) => {
+
+        let arrayOfElements = [];
+        
         if (item.classList.contains(filter)) {
-          item.style.display = "flex";
+          arrayOfElements.push(filter);
         }
         else {
           item.style.display = "none";
