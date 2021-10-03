@@ -1,22 +1,11 @@
 //data filtering
-
-const frontend = [...document.querySelectorAll("[value = frontend]")];
+const selectedFilters = new Set();
 const itemValues = [...document.querySelectorAll(".selector")];
-const itemValues3 = Array.from(document.querySelectorAll("[value]"));
-const itemValues4 = [...document.querySelectorAll("[value]")].map(
-  (value) => value.innerHTML
-);
 
-//filters all elements in an array and deletes dublicates
-// let uniqueArrayElement = itemValues4.filter(function (element, index, self) {
-//   console.log(self)
-
-//   return index === self.indexOf(element);
-// });
+let data, body = document.querySelector('body'), realJobList = [];
 
 itemValues.forEach((element) => {
   let results = document.querySelector(".filtered-items");
-  // let resultsArray = [...document.querySelector(".filtered-items")];
   let resultsParentElement = document.querySelector(".filters");
   element.addEventListener("click", function (event) {
     event.stopPropagation();
@@ -24,16 +13,66 @@ itemValues.forEach((element) => {
 
     resultsParentElement.style.opacity = "1";
 
-    if (element) {
-      results.innerHTML += `
-            <div class="element-item ${element.innerHTML.toLocaleLowerCase()}">
+    results.innerHTML += `
+            <div class="element-item ${element.innerHTML.toLocaleLowerCase()}" data-item=${element.innerHTML.toLocaleLowerCase()}>
                 <span>${element.innerHTML}</span>
                 <span class="material-icons close-icon">close</span>
             </div>
              `;
     }
+  )
 
-  });
+  //filters elements depending on the value that has been clicked
+  function filterClick() {
+    let buttons = document.querySelectorAll("button");
+    const itemValues = [...document.querySelectorAll(".item")];
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const filter = e.target.dataset.filter; // same as button.dataset.filter
+
+        //array that updates every time you add filter by clicking the button. also it would need to remove filters/classes when you remove them
+        //an array which adds the class each time a class is selected by the user to create a list of all currently active classes
+        //create an array and add to this - how do i create an array and add items to it
+
+        itemValues.forEach((item) => {
+
+          let arrayOfElements = [];
+
+          if (item.classList.contains(filter)) {
+            arrayOfElements.push(filter);
+            selectedFilters.add(filter)
+            let newArray = Array.from(selectedFilters); //creates an array from objects (new Set())
+            console.log(newArray.toString()) //creates string from an array
+
+          } else {
+            item.style.display = "none"
+          }
+
+          //hides selected item (selects parent element of the icon along with the description)
+          let closeButton = [...document.querySelectorAll(".element-item")];
+          
+
+          closeButton.forEach((activeButton) => {
+            activeButton.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+                activeButton.remove();              
+                selectedFilters.delete(filter)
+                console.log(selectedFilters)
+
+            })
+          })
+        });
+      });
+    });
+  }
+
+  filterClick();
+  
 
   //clears all selected elements on one click
   const clearAll = document.querySelector(".clear");
@@ -46,54 +85,13 @@ itemValues.forEach((element) => {
     myNodeText.textContent = "";
     items.forEach((item) => {
       item.style.display = "flex";
+      selectedFilters.clear();
+      console.log(selectedFilters)
     })
   };
 });
 
-//filters elements depending on the value that has been clicked
-function filterClick() {
-  let buttons = document.querySelectorAll("button");
-  let items = document.querySelectorAll(".item");
-  const itemValues = [...document.querySelectorAll(".item")];
 
-  buttons.forEach((button) => {
-
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const filter = e.target.dataset.filter;
-
-      //array that updates every time you add filter by clicking the button. also it would need to remove filters/classes when you remove them
-      //an array which adds the class each time a class is selected by the user to create a list of all currently active classes
-      //create an array and add to this - how do i create an array and add items to it
-
-      itemValues.forEach((item) => {
-
-        let arrayOfElements = [];
-
-        if (item.classList.contains(filter)) {
-          arrayOfElements.push(filter);
-        } else {
-          item.style.display = "none"
-        }
-
-        //hides selected item (selects parent element of the icon along with the description)
-        let closeButton = document.querySelectorAll(".close-icon");
-        let activeCloseButton = [...closeButton];
-
-        activeCloseButton.forEach((activeButton) => {
-          console.log(activeButton)
-          activeButton.addEventListener('click', (e) => {
-            activeButton.parentElement.style.display = "none";
-          })
-        })
-      });
-    });
-  });
-}
-
-filterClick();
 
 
 
