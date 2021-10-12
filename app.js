@@ -4,6 +4,8 @@ const itemValues = [...document.querySelectorAll(".selector")];
 
 let data, body = document.querySelector('body'), realJobList = [];
 
+
+
 itemValues.forEach((element) => {
   let results = document.querySelector(".filtered-items");
   let resultsParentElement = document.querySelector(".filters");
@@ -12,42 +14,43 @@ itemValues.forEach((element) => {
     event.preventDefault();
 
     resultsParentElement.style.opacity = "1";
-
-    results.innerHTML += `
-            <div class="element-item ${element.innerHTML.toLocaleLowerCase()}" data-item=${element.innerHTML.toLocaleLowerCase()}>
-                <span>${element.innerHTML}</span>
-                <span class="material-icons close-icon">close</span>
-            </div>
-             `;
+    resultsParentElement.classList.add('listing');
     }
   )
 
   //filters elements depending on the value that has been clicked
   function filterClick() {
     let buttons = document.querySelectorAll("button");
+
     const itemValues = [...document.querySelectorAll(".item")];
 
     buttons.forEach((button) => {
       button.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
 
         const filter = e.target.dataset.filter; // same as button.dataset.filter
-
         //array that updates every time you add filter by clicking the button. also it would need to remove filters/classes when you remove them
         //an array which adds the class each time a class is selected by the user to create a list of all currently active classes
         //create an array and add to this - how do i create an array and add items to it
 
+
         itemValues.forEach((item) => {
 
-          let arrayOfElements = [];
-
           if (item.classList.contains(filter)) {
-            arrayOfElements.push(filter);
             selectedFilters.add(filter)
-            let newArray = Array.from(selectedFilters); //creates an array from objects (new Set())
-            console.log(newArray.toString()) //creates string from an array
+            let array = Array.from(selectedFilters);
+            let arrayToString = array.toString();
+            console.log(arrayToString, array)
 
+            array.forEach(function(arrayItem) {
+              console.log(arrayItem)
+              console.log('test')
+            })
+
+            // results.innerHTML += `
+            // <div class="element-item ${arrayToString}" data-item=${filter}>
+            //     ${arrayToString}
+            // </div>
+            //   `;
           } else {
             item.style.display = "none"
           }
@@ -55,15 +58,13 @@ itemValues.forEach((element) => {
           //hides selected item (selects parent element of the icon along with the description)
           let closeButton = [...document.querySelectorAll(".element-item")];
           
-
           closeButton.forEach((activeButton) => {
             activeButton.addEventListener('click', (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-                activeButton.remove();              
-                selectedFilters.delete(filter)
-                console.log(selectedFilters)
-
+              const filter2 = activeButton.dataset.item;
+              if(activeButton.classList.contains(filter2)) {
+                activeButton.remove(filter2);    
+                selectedFilters.delete(filter2); 
+              }
             })
           })
         });
@@ -86,7 +87,6 @@ itemValues.forEach((element) => {
     items.forEach((item) => {
       item.style.display = "flex";
       selectedFilters.clear();
-      console.log(selectedFilters)
     })
   };
 });
@@ -110,3 +110,5 @@ itemValues.forEach((element) => {
         //     }
         //   };
         // }
+
+        
