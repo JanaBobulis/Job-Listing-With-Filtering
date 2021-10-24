@@ -58,6 +58,11 @@ buttons.forEach((button) => {
           selectedFilters.delete(filter2); 
           console.log(selectedFilters)
         }
+
+        if(selectedFilters.size == 0) {
+          console.log(selectedFilters.size)
+          document.querySelector(".filters").style.opacity = "0";
+        }
       })})
               
     //clears all selected elements on one click
