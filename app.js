@@ -9,7 +9,6 @@ const parentContainer = document.querySelectorAll(".item");
 
 let resultsParentElement = document.querySelector(".filters");
 
-
 buttons.forEach((button) => {
   button.addEventListener('click', (e) => {
 
@@ -18,15 +17,15 @@ buttons.forEach((button) => {
     const filter = e.target.dataset.filter;
 
     selectedFilters.add(filter)
-    console.log(selectedFilters)
-
     let array = Array.from(selectedFilters);
+    //array.slice(-1).pop()
 
     results.innerHTML += `
-    <div class="element-item ${button.value}" data-filter="${button.innerHTML}">
-        ${button.innerHTML}
+    <div class="element-item ${filter}" data-filter="${filter}">
+        ${filter}
     </div>
     `;
+    console.log(selectedFilters)
 
     parentContainer.forEach((item) => {
 
@@ -36,21 +35,31 @@ buttons.forEach((button) => {
         } else {
           item.style.display = "none"
         }
+
+        // if (selectedFilters.has(filter)) {
+        //   console.log('test')
+        //   this.removeEventListener('click', (e))
+        // }
     })
 
     let closeButton = [...document.querySelectorAll(".element-item")];
 
     closeButton.forEach((activeButton) => {
       activeButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log(selectedFilters)
+
         const filter2 = activeButton.dataset.filter;
-        const filterLowerCase = filter2.toLowerCase;
-        console.log(filter2.toLowerCase())
-          activeButton.remove(filterLowerCase);    
-          selectedFilters.delete(filter);
+
+        if(selectedFilters.has(filter2)) {
+          console.log(filter2)
+          activeButton.remove(filter2);    
+          selectedFilters.delete(filter2); 
+          console.log(selectedFilters)
+        }
       })})
               
-
-
     //clears all selected elements on one click
     const clearAll = document.querySelector(".clear");
 
