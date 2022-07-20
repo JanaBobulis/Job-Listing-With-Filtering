@@ -91,6 +91,14 @@ header {
         margin-top: 100px;
     }
 
+    &.inactive {
+        display: none;
+    }
+
+    &.active {
+        display: flex;
+    }
+
     @include breakpoint-up(large) {
         flex-direction: row;
         justify-content: space-between;
