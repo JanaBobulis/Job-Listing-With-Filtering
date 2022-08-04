@@ -75,6 +75,9 @@ header {
     }
 }
 
+.item-container {
+    margin-top: 100px;
+}
 .item {
     position: relative;
     margin: 0 auto;
@@ -87,9 +90,6 @@ header {
     flex-direction: column;
     margin-top: 50px;
 
-    &:first-of-type {
-        margin-top: 100px;
-    }
 
     &.inactive {
         display: none;
@@ -262,5 +262,17 @@ header {
 .active {
     display: flex;
 }
+
+.filtered-items {
+    .element-item {
+        background-color: #eef6f6;
+    color: #5ba4a4;
+    font-weight: 700;
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+    }
 
 

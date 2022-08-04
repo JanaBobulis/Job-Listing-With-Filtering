@@ -4,39 +4,46 @@ const itemValues = [...document.querySelectorAll(".selector")];
 
 //filters elements depending on the value that has been clicked
 let buttons = document.querySelectorAll("button");
-
 const parentContainer = document.querySelectorAll(".item");
-
 let resultsParentElement = document.querySelector(".filters");
 
 //loops through all buttons
 buttons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-
+ button.addEventListener('click', (e) => {
     resultsParentElement.style.opacity = "1";
     let results = document.querySelector(".filtered-items")
     const filter = e.target.dataset.filter;
+
+    //checking if filtered array/set has the same value as clicked element, if so the value is returned and not being executed 
+    if(selectedFilters.has(filter)) {
+      return;
+    }
 
     selectedFilters.add(filter)
     let array = Array.from(selectedFilters);
 
     results.innerHTML += `
-    <div class="element-item ${filter}" data-filter="${filter}">
+    <li class="element-item ${filter}" data-filter="${filter}">
         ${button.innerHTML}
-    </div>
+    </li>
     `;
+
+    const btnInnerHtml = button.innerHTML
+    const btnInnerHtmlArray = Array.from(button.innerHTML)
 
     //loops through parent elements of the button elements (the whole container)
     parentContainer.forEach((item) => {
+      // console.log(item, 'item')
         if (item.classList.contains(filter)) {
           return;
-
         } else {
           item.classList.add('inactive');
+          item.classList.remove('active');
         }
     })
 
     let closeButton = [...document.querySelectorAll(".element-item")];
+
     //loops through filtered buttons
     closeButton.forEach((activeButton) => {
       activeButton.addEventListener('click', (e) => {
@@ -46,7 +53,6 @@ buttons.forEach((button) => {
         const filter2 = activeButton.dataset.filter;
 
         if(selectedFilters.has(filter2)) {
-          console.log(filter2)
           activeButton.remove(filter2);    
           selectedFilters.delete(filter2); 
         }
@@ -56,14 +62,10 @@ buttons.forEach((button) => {
         }
 
         parentContainer.forEach((item) => {
-
-
             let array2 = Array.from(selectedFilters);
             let classes = [... item.classList]
-            console.log(classes)
-            console.log(array2)
 
-  
+          
             const containsAll = array2.every(element => {
               return classes.includes(element);
             });
@@ -73,8 +75,7 @@ buttons.forEach((button) => {
               item.classList.add('active');
               item.classList.remove('inactive');
             }
-            console.log(containsAll)
-  
+
             if(array2.length === 0) {
               console.log('length is 0')
               item.classList.remove('active');
@@ -83,8 +84,6 @@ buttons.forEach((button) => {
             }
         })
       })})
-              
-
 
     //clears all selected elements on one click
     const clearAll = document.querySelector(".clear");
